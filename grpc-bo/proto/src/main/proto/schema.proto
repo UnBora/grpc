@@ -1,0 +1,35 @@
+//Use proto 3 version
+syntax = "proto3";
+
+//mention package to create proto file
+package com.devproblems;
+
+option java_multiple_files = true;
+
+//To create Book Class
+message Book {
+  int32 book_id = 1;
+  string title = 2;
+  float price = 3;
+  int32 page = 4;
+  string author_id = 5;
+}
+message Author {
+  int32 author_id =1;
+  string first_name= 2;
+  string last_name = 3;
+  string gender = 4;
+  int32 book_id = 5;
+}
+
+// Create Service
+service BookAuthorService {
+  //unary - synchronous
+  // client will send one request ant server will response with one response
+  rpc getAuthor(Author) returns(Author);
+
+  // Service Streaming - asynchronous
+  //client streaming
+  //bi - directional stream - asynchronous
+
+}
